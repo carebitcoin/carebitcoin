@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=CarebitCoin
+Comment=CarebitCoin P2P Cryptocurrency
+Comment[fr]=CarebitCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=CarebitCoin, eşten eşe kriptografik sanal para birimi
+Exec=carebitcoin-qt %u
+Terminal=false
+Type=Application
+Icon=carebitcoin128
+MimeType=x-scheme-handler/carebitcoin;
+Categories=Office;Finance;

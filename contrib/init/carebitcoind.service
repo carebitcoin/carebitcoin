@@ -1,0 +1,26 @@
+[Unit]
+Description=CarebitCoin's distributed currency daemon
+After=network.target
+
+[Service]
+User=carebitcoin
+Group=carebitcoin
+
+Type=forking
+PIDFile=/var/lib/carebitcoind/carebitcoind.pid
+
+ExecStart=/usr/bin/carebitcoind -daemon -pid=/var/lib/carebitcoind/carebitcoind.pid \
+          -conf=/etc/carebitcoin/carebitcoin.conf -datadir=/var/lib/carebitcoind
+
+ExecStop=-/usr/bin/carebitcoin-cli -conf=/etc/carebitcoin/carebitcoin.conf \
+         -datadir=/var/lib/carebitcoind stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

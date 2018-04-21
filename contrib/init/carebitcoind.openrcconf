@@ -1,0 +1,26 @@
+# /etc/conf.d/carebitcoind: config file for /etc/init.d/carebitcoind
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/carebitcoin/carebitcoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/carebitcoind"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/carebitcoind.pid"
+
+# Where to write carebitcoind data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/carebitcoind"
+
+# User and group to own carebitcoind process
+#BITCOIND_USER="carebitcoin"
+#BITCOIND_GROUP="carebitcoin"
+
+# Path to carebitcoind executable
+#BITCOIND_BIN="/usr/bin/carebitcoind"
+
+# Nice value to run carebitcoind under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
