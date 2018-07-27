@@ -1,5 +1,5 @@
 ---
-name: "carebitcoin-win-1.2"
+name: "carebitcoin-win-3.0"
 enable_cache: true
 suites:
 - "trusty"
@@ -22,10 +22,11 @@ packages:
 - "ca-certificates"
 - "python"
 remotes:
-- "url": "https://github.com/eastcoastcrypto/CarebitCoin"
+- "url": "https://github.com/carebitcoin/carebitcoin.git"
   "dir": "carebitcoin"
 files: []
 script: |
+
   WRAP_DIR=$HOME/wrapped
   HOSTS="i686-w64-mingw32 x86_64-w64-mingw32"
   CONFIGFLAGS="--enable-reduce-exports --disable-bench --disable-gui-tests"

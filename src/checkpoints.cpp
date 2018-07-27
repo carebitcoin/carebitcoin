@@ -99,4 +99,19 @@ CBlockIndex* GetLastCheckpoint()
     return NULL;
 }
 
+bool ActiveChainOnFork()
+{
+    if (!fEnabled)
+        return false;
+
+    const MapCheckpoints& checkpoints = *Params().Checkpoints().mapCheckpoints;
+
+    BOOST_REVERSE_FOREACH (const MapCheckpoints::value_type& i, checkpoints) {
+        if (chainActive.Height() >= i.first && chainActive[i.first])
+            return chainActive[i.first]->GetBlockHash() != i.second;
+    }
+
+    return false;
+}
+
 } // namespace Checkpoints

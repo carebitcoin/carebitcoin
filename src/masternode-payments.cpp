@@ -676,9 +676,8 @@ bool CMasternodePaymentWinner::IsValid(CNode* pnode, std::string& strError)
             //if (masternodeSync.IsSynced()) Misbehaving(pnode->GetId(), 20);
         }
         return false;
-    }
-
-    return true;
+    } else
+		return true;
 }
 
 bool CMasternodePayments::ProcessBlock(int nBlockHeight)

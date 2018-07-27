@@ -44,6 +44,8 @@
 
 #include <boost/unordered_map.hpp>
 
+#define UPD1_BLOCK 138831 // v3.0.0.0 - proto 70100 
+
 class CBlockIndex;
 class CBlockTreeDB;
 class CZerocoinDB;

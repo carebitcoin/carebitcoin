@@ -35,6 +35,9 @@ int GetTotalBlocksEstimate();
 //! Returns last CBlockIndex* in mapBlockIndex that is a checkpoint
 CBlockIndex* GetLastCheckpoint();
 
+//! Returns true if active chain does not match with checkpoints
+bool ActiveChainOnFork();
+
 double GuessVerificationProgress(CBlockIndex* pindex, bool fSigchecks = true);
 
 extern bool fEnabled;

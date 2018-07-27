@@ -1816,6 +1816,14 @@ CAddrDB::CAddrDB()
     pathAddr = GetDataDir() / "peers.dat";
 }
 
+void CAddrDB::RemoveStorage() const
+{
+    if (boost::filesystem::exists(pathAddr)) {
+        LogPrintf("%s: Deleting peers database %s\n", __func__, pathAddr.string());
+        boost::filesystem::remove(pathAddr);
+    }
+}
+
 bool CAddrDB::Write(const CAddrMan& addr)
 {
     // Generate random temporary filename

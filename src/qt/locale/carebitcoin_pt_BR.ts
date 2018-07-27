@@ -3490,8 +3490,8 @@ https://www.transifex.com/carebitcoin-project/carebitcoin-project-translations</
         <translation>Você deve especificar uma masternodeprivkey na configuração. Favor verificar o manual para obter ajuda.</translation>
     </message>
     <message>
-        <source>(9191 could be used only on mainnet)</source>
-        <translation>(9191 could be used only on mainnet)</translation>
+        <source>(9192 could be used only on mainnet)</source>
+        <translation>(9192 could be used only on mainnet)</translation>
     </message>
     <message>
         <source>(default: %s)</source>
@@ -3502,8 +3502,8 @@ https://www.transifex.com/carebitcoin-project/carebitcoin-project-translations</
         <translation>(padrão: 1)</translation>
     </message>
     <message>
-        <source>(must be 9191 for mainnet)</source>
-        <translation>(deve ser 9191 para mainnet)</translation>
+        <source>(must be 9192 for mainnet)</source>
+        <translation>(deve ser 9192 para mainnet)</translation>
     </message>
     <message>
         <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>

@@ -2134,16 +2134,18 @@ int64_t GetBlockValue(int nHeight)
           nSubsidy = 600 * COIN;
   	} else if (nHeight <= 82000 && nHeight > 32000) {
           nSubsidy = 500 * COIN;
-  	} else if (nHeight <= 500000 && nHeight > 82000) {
+  	} else if (nHeight <= UPD1_BLOCK && nHeight > 82000) { 
           nSubsidy = 400 * COIN;
-  	} else if (nHeight <= 1000000 && nHeight > 500000) {
-          nSubsidy = 300 * COIN;
-  	} else if (nHeight <= 1500000 && nHeight > 1000000) {
+  	} else if (nHeight <= 250000 && nHeight > UPD1_BLOCK) { 
           nSubsidy = 200 * COIN;
-    } else if (nHeight <= 3000000 && nHeight > 1500000) {
-          nSubsidy = 100 * COIN;
+  	} else if (nHeight <= 500000 && nHeight > 400000) {
+          nSubsidy = 150 * COIN;
+    } else if (nHeight <= 1000000 && nHeight > 500000) {
+          nSubsidy = 75 * COIN;
+    } else if (nHeight <= 3000000 && nHeight > 1000000) {
+          nSubsidy = 30 * COIN;
     } else {
-          nSubsidy = 50 * COIN;
+          nSubsidy = 20 * COIN;
     }
     return nSubsidy;
 }
@@ -2152,13 +2154,13 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
 {
     int64_t ret = 0;
 
-	// 90% for Masternodes from block 1000
 	if (nHeight <= 200) {
-	      ret = blockValue  / 100 * 0;               // %0
-	} else if (nHeight > 200 ) {
-		  ret = blockValue  / 100 * 80;               // %80
-	}
-
+	      ret = blockValue  / 100 * 0;
+	} else if (nHeight <= UPD1_BLOCK && nHeight > 200) { 
+		  ret = blockValue  / 100 * 80;
+	} else { 
+          ret = blockValue  / 100 * 90;
+    }
     return ret;
 }
 
@@ -2171,7 +2173,7 @@ bool IsInitialBlockDownload()
     if (lockIBDState)
         return false;
     bool state = (chainActive.Height() < pindexBestHeader->nHeight - 24 * 6 ||
-                  pindexBestHeader->GetBlockTime() < GetTime() - 6 * 60 * 60) && chainActive.Height() > 400; // ~144 blocks behind -> 2 x fork detection time
+                  pindexBestHeader->GetBlockTime() < GetTime() - 6 * 60 * 60) && chainActive.Height() > (UPD1_BLOCK - 20); // ~144 blocks behind -> 2 x fork detection time
     if (!state)
         lockIBDState = true;
     return state;
@@ -4025,9 +4027,9 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     int nHeight = pindexPrev->nHeight + 1;
 
     //If this is a reorg, check that it is not too deep
-    int nMaxReorgDepth = GetArg("-maxreorg", Params().MaxReorganizationDepth());
-    if (chainActive.Height() - nHeight >= nMaxReorgDepth)
-        return state.DoS(1, error("%s: forked chain older than max reorganization depth (height %d)", __func__, nHeight));
+    int64_t nMaxReorganizationDepth = GetSporkValue(SPORK_19_MAX_REORGANIZATION_DEPTH);
+	if (nMaxReorganizationDepth > 0 && chainActive.Height() - nHeight >= nMaxReorganizationDepth)
+		return state.DoS(1, error("%s: forked chain older than max reorganization depth (height %d)", __func__, nHeight));
 
     // Check timestamp against prev
     if (block.GetBlockTime() <= pindexPrev->GetMedianTimePast()) {
@@ -5175,11 +5177,12 @@ void static ProcessGetData(CNode* pfrom)
                         // To prevent fingerprinting attacks, only send blocks outside of the active
                         // chain if they are valid, and no more than a max reorg depth than the best header
                         // chain we know about.
-                        send = mi->second->IsValid(BLOCK_VALID_SCRIPTS) && (pindexBestHeader != NULL) &&
-                               (chainActive.Height() - mi->second->nHeight < Params().MaxReorganizationDepth());
-                        if (!send) {
+						int64_t nMaxReorganizationDepth = GetSporkValue(SPORK_19_MAX_REORGANIZATION_DEPTH);
+						send = mi->second->IsValid(BLOCK_VALID_SCRIPTS) && (pindexBestHeader != NULL);
+						if (nMaxReorganizationDepth > 0)
+							send = send && (chainActive.Height() - mi->second->nHeight < nMaxReorganizationDepth);
+						if (!send)
                             LogPrintf("ProcessGetData(): ignoring request from peer=%i for old block that isn't in the main chain\n", pfrom->GetId());
-                        }
                     }
                 }
                 // Don't send not-validated blocks

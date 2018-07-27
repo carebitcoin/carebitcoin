@@ -53,12 +53,16 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 //    timestamp before)
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
-    boost::assign::map_list_of
-    (0, uint256("0x00000d4c3eb9841c9258ba27e7fa633571d3ddd4d6e7f94e80051cb406c2c579"));
+    boost::assign::map_list_of(0, uint256("0x00000d4c3eb9841c9258ba27e7fa633571d3ddd4d6e7f94e80051cb406c2c579"))
+		(1, uint256("0x0575203603e4970449a039d29d76571ab5efa0e48433d01e7bf386596c95b9da"))
+		(50000, uint256("0xa2297778ea32625ca4d140c89bf0e7c10f52b01aa08f91d078bb07c26afa5085"))
+		(100000, uint256("0xd60be23ad81b360adfabe344bac124e0862686e9a73483baba583f6afb221c1a"))
+		(136757, uint256("0xf2b5645b49997822246757479e37cbc9679022c13636bf1e1ba6c35ab9e01faa"));
+	
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1524242676, // * UNIX timestamp of last checkpoint block
-    0,    // * total number of transactions between genesis and last checkpoint
+    1532518409, // * UNIX timestamp of last checkpoint block
+    296955,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
 };
@@ -104,11 +108,10 @@ public:
         pchMessageStart[1] = 0x4d;
         pchMessageStart[2] = 0x2c;
         pchMessageStart[3] = 0x63;
-        vAlertPubKey = ParseHex("0425081278251c33b2ee4305133a1765e07cc35137260a30e0994480f557b8b6aadcccdc6e6fdb455612f979f48bee40cc33c2b5679c9798ef7d9848afd3361fe7");
-        nDefaultPort = 9191;
+		vAlertPubKey = ParseHex("0495fd27d87ed59b6d64cc20986a9daa48acad7069d76bb09a9fbae7f287feed3bff5723f80d21a0a2da8fd8e7397f8cec313e8e1055b8e53de43427037c2113a4");
+        nDefaultPort = 9192;
         bnProofOfWorkLimit = ~uint256(0) >> 1; // CarebitCoin starting difficulty
         nSubsidyHalvingInterval = 210000;
-        nMaxReorganizationDepth = 100;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
@@ -158,13 +161,16 @@ public:
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0x00000d4c3eb9841c9258ba27e7fa633571d3ddd4d6e7f94e80051cb406c2c579"));
         assert(genesis.hashMerkleRoot == uint256("0x31835a77e99e386b8d623d6901295fc771303f445c258bb13b5a741434587d52"));
-
-        vSeeds.push_back(CDNSSeedData("206.189.70.186", "206.189.70.186"));           // Single node address
-    		vSeeds.push_back(CDNSSeedData("167.99.204.53", "167.99.204.53"));             // Single node address
-    		vSeeds.push_back(CDNSSeedData("167.99.204.49", "167.99.204.49"));             // Single node address
-        vSeeds.push_back(CDNSSeedData("167.99.91.226", "167.99.91.226"));             // Single node address
-        vSeeds.push_back(CDNSSeedData("167.99.204.45", "167.99.204.45"));             // Single node address
-        vSeeds.push_back(CDNSSeedData("206.189.19.150", "206.189.19.150"));             // dns node
+		
+		vSeeds.push_back(CDNSSeedData("80.211.138.180", "80.211.138.180")); // j
+        vSeeds.push_back(CDNSSeedData("167.99.204.45", "167.99.204.45"));  	// n1
+		vSeeds.push_back(CDNSSeedData("167.99.204.49", "167.99.204.49"));  	// n2
+		vSeeds.push_back(CDNSSeedData("167.99.91.226", "167.99.91.226"));  	// n4
+    	vSeeds.push_back(CDNSSeedData("77.68.77.47", "77.68.77.47"));  		// a1
+		vSeeds.push_back(CDNSSeedData("77.68.92.109", "77.68.92.109"));  	// a2
+		vSeeds.push_back(CDNSSeedData("66.175.238.91", "66.175.238.91"));  	// a3
+		vSeeds.push_back(CDNSSeedData("77.68.77.23", "77.68.77.23"));  	// a4
+		vSeeds.push_back(CDNSSeedData("77.68.79.34", "77.68.79.34")); 	// a5
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 28);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 137);
@@ -187,8 +193,7 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        //strSporkKey = "0459eede7626441f7802af2736cb3a4aeb3e1f95070cde39d068a4f16525ee8fdd3c075f29f9e115aeb91952239194aa6ac19765574fed8a0d7f174f2b450e9630";
-		    strSporkKey = "04373ab3e5ccfb59f10e2bba9c309b213e8b634e49e05c4d3886bb4304380a1aaf25a7e5ba0889004f1ef4eed256c6c528f69ef079d80a3b759affd418191cf0ce";
+		strSporkKey = "044C8072E6F4ECDA6955BF461923B8C887CFCF50D4969A0A747C48F84AA6E155BAA3F479956DAF0F0EAC51291B00ACEB7B808E0316F9993C513FE04859EA293BBF";
         strObfuscationPoolDummyAddress = "Veax8jHDQ1s2kHVjysEoTQncVdUrNBuXtp";
         nStartMasternodePayments = 1524242676;
 
@@ -225,7 +230,7 @@ public:
         pchMessageStart[2] = 0x65;
         pchMessageStart[3] = 0xba;
         vAlertPubKey = ParseHex("042292b1f401860eea99e1a8a103effbd7e1c013a59a1a3a0c91c9d1997a0bc6f338567278c11344802838c107055bf7c1641eaed61e879245c255a4f5be5746fc");
-        nDefaultPort = 51434;
+        nDefaultPort = 51435;
         nEnforceBlockUpgradeMajority = 51;
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
@@ -303,10 +308,10 @@ public:
         networkID = CBaseChainParams::REGTEST;
         strNetworkID = "regtest";
         strNetworkID = "regtest";
-        pchMessageStart[0] = 0x69;
-        pchMessageStart[1] = 0xcf;
-        pchMessageStart[2] = 0x7e;
-        pchMessageStart[3] = 0xac;
+        pchMessageStart[0] = 0xac;
+        pchMessageStart[1] = 0x7e;
+        pchMessageStart[2] = 0xcf;
+        pchMessageStart[3] = 0x69;
         nSubsidyHalvingInterval = 150;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
@@ -320,7 +325,7 @@ public:
         genesis.nNonce = 732084;
 
         hashGenesisBlock = genesis.GetHash();
-        nDefaultPort = 51436;
+        nDefaultPort = 51437;
         //assert(hashGenesisBlock == uint256("0x000008415bdca132b70cf161ecc548e5d0150fd6634a381ee2e99bb8bb77dbb3"));
 
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
@@ -351,7 +356,7 @@ public:
     {
         networkID = CBaseChainParams::UNITTEST;
         strNetworkID = "unittest";
-        nDefaultPort = 51478;
+        nDefaultPort = 51479;
         vFixedSeeds.clear(); //! Unit test mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Unit test mode doesn't have any DNS seeds.
 

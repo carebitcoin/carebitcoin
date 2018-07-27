@@ -4560,8 +4560,8 @@ bijvoorbeeld: alertnotify = echo %%s | mail -s "CarebitCoin Alert" admin@foo.com
         <translation>Je moet een masternodeprivkey opgeven in de configuratie. Raadpleeg de documentatie voor hulp.</translation>
     </message>
     <message>
-        <source>(9191 could be used only on mainnet)</source>
-        <translation>(9191 kan alleen op mainnet worden gebruikt)</translation>
+        <source>(9192 could be used only on mainnet)</source>
+        <translation>(9192 kan alleen op mainnet worden gebruikt)</translation>
     </message>
     <message>
         <source>(default: %s)</source>
@@ -4572,8 +4572,8 @@ bijvoorbeeld: alertnotify = echo %%s | mail -s "CarebitCoin Alert" admin@foo.com
         <translation>(standaard: 1)</translation>
     </message>
     <message>
-        <source>(must be 9191 for mainnet)</source>
-        <translation>(moet 9191 voor mainnet zijn)</translation>
+        <source>(must be 9192 for mainnet)</source>
+        <translation>(moet 9192 voor mainnet zijn)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>

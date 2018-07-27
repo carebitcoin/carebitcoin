@@ -81,7 +81,6 @@ src/qt/test/moc*.cpp
 
 # Compilation and Qt preprocessor part
 *.qm
-Makefile
 carebitcoin-qt
 carebitcoin-Qt.app
 
@@ -128,3 +127,4 @@ CMakeLists.txt
 cmake-build-debug
 config.log
 config.status
+Thumbs.db

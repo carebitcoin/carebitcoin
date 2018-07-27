@@ -7,7 +7,7 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/carebitcoinproject/carebitcoin-detached-sigs.git"
+- "url": "https://github.com/carebitcoin/carebitcoin-detached-sigs.git"
   "dir": "signature"
 files:
 - "carebitcoin-osx-unsigned.tar.gz"

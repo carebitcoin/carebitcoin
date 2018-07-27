@@ -226,10 +226,10 @@ QT_TRANSLATE_NOOP("carebitcoin-core", ""
 QT_TRANSLATE_NOOP("carebitcoin-core", ""
 "You must specify a masternodeprivkey in the configuration. Please see "
 "documentation for help."),
-QT_TRANSLATE_NOOP("carebitcoin-core", "(9191 could be used only on mainnet)"),
+QT_TRANSLATE_NOOP("carebitcoin-core", "(9192 could be used only on mainnet)"),
 QT_TRANSLATE_NOOP("carebitcoin-core", "(default: %s)"),
 QT_TRANSLATE_NOOP("carebitcoin-core", "(default: 1)"),
-QT_TRANSLATE_NOOP("carebitcoin-core", "(must be 9191 for mainnet)"),
+QT_TRANSLATE_NOOP("carebitcoin-core", "(must be 9192 for mainnet)"),
 QT_TRANSLATE_NOOP("carebitcoin-core", "<category> can be:"),
 QT_TRANSLATE_NOOP("carebitcoin-core", "Accept command line and JSON-RPC commands"),
 QT_TRANSLATE_NOOP("carebitcoin-core", "Accept connections from outside (default: 1 if no -proxy or -connect)"),
