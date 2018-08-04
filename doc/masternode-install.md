@@ -136,7 +136,7 @@ If you require further assistance contact the support team @ [Discord](https://d
 ## Section D: Preparing the Local wallet
 
 ***Step 1***
-* Download and install the Carebit wallet [here](https://github.com/PaMajju/CareBitCoinCore/releases)
+* Download and install the Carebit wallet [here](https://github.com/carebitcoin/carebitcoin/releases/latest)
 ***
 
 ***Step 2***
