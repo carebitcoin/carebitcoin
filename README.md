@@ -1,3 +1,1 @@
-### CarebitCoin is a fork of [PIVX](https://github.com/PIVX-Project/PIVX) that forked [Dash](https://github.com/dashpay/dash) that forked [Bitcoin](https://github.com/bitcoin/bitcoinp)
-
-
+### For the masternode setup see [CarebitCoin masternode setup guide](https://github.com/carebitcoin/carebitcoin/blob/master/doc/masternode-install.md)

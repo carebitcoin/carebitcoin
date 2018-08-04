@@ -3,7 +3,7 @@ CarebitCoin Core
 
 Setup
 ---------------------
-[CarebitCoin Core](http://CarebitCoincoin.com) is the original CarebitCoin client and it builds the backbone of the network. However, it downloads and stores the entire history of CarebitCoin transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
+[CarebitCoin Core](https://carebit.org/) is the original CarebitCoin client and it builds the backbone of the network. However, it downloads and stores the entire history of CarebitCoin transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
 
 Running
 ---------------------
@@ -13,8 +13,7 @@ The following are some helpful notes on how to run CarebitCoin on your native pl
 
 Unpack the files into a directory and run:
 
-- bin/32/carebitcoin-qt (GUI, 32-bit) or bin/32/carebitcoind (headless, 32-bit)
-- bin/64/carebitcoin-qt (GUI, 64-bit) or bin/64/carebitcoind (headless, 64-bit)
+- bin/carebitcoin-qt (GUI) or bin/carebitcoind (headless)
 
 ### Windows
 
@@ -22,14 +21,14 @@ Unpack the files into a directory, and then run carebitcoin-qt.exe.
 
 ### OSX
 
-Drag CarebitCoin-Qt to your applications folder, and then run CarebitCoin-Qt.
+Open the latest carebitcoin-x.x.x-osx.dmg and drag CarebitCoin-Qt to your applications folder, and then run CarebitCoin-Qt.
 
 ### Need Help?
 
 * See the documentation at the [CarebitCoin Wiki](https://en.bitcoin.it/wiki/Main_Page) ***TODO***
 for help and more information.
-* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php) or on the [CarebitCoin Forum](http://CarebitCoincoin.com/).
-* Join one of our Discord groups [CarebitCoin Discord Groups](https://discord.gg/YcnvMqt).
+* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php).
+* Join our Discord group [CarebitCoin Discord Group](https://discord.gg/BBBms9Z).
 
 Building
 ---------------------
@@ -41,7 +40,7 @@ The following are developer notes on how to build CarebitCoin on your native pla
 
 Development
 ---------------------
-The CarebitCoin repo's [root README](https://github.com/eastcoastcrypto/CarebitCoin/blob/master/README.md) contains relevant information on the development process and automated testing.
+The CarebitCoin repo's [root README](https://github.com/carebitcoin/carebitcoin/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)
@@ -55,8 +54,9 @@ The CarebitCoin repo's [root README](https://github.com/eastcoastcrypto/CarebitC
 
 ### Resources
 
-* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) .
-* Join the [CarebitCoin-Dev] Discord groups [CarebitCoin Discord Groups](https://discord.gg/YcnvMqt).
+* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=3156446.0) .
+* Join the [CarebitCoin Discord](https://discord.gg/BBBms9Z)
+* Follow [CarebitCoin Twitter](https://twitter.com/CarebitAdmin) for regular updates.
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)
