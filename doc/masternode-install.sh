@@ -7,7 +7,7 @@ COIN_DAEMON='carebitcoind'
 COIN_CLI='carebitcoin-cli'
 COIN_PATH='/usr/local/bin/'
 COIN_REPO='https://github.com/carebitcoin/carebitcoin.git'
-COIN_TGZ='https://github.com/carebitcoin/carebitcoin/releases/download/v3.0.0.0/carebitcoin-3.0.0.tar.gz'
+COIN_TGZ='https://github.com/carebitcoin/carebitcoin/releases/download/v3.0.0.0/carebitcoin-3.0.0-x86_64-linux-gnu.zip'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='Carebit'
 COIN_PORT=9192
@@ -144,7 +144,13 @@ externalip=$NODEIP:$COIN_PORT
 masternodeprivkey=$COINKEY
 
 #ADDNODES
-
+addnode=167.99.204.45
+addnode=167.99.204.49
+addnode=167.99.91.226
+addnode=80.211.138.180
+addnode=45.77.226.219
+addnode=45.63.17.4
+addnode=45.32.233.67
 EOF
 }
 
@@ -257,20 +263,20 @@ function important_information() {
  echo -e "Sentinel logs is: ${RED}$CONFIGFOLDER/sentinel.log${NC}"
  fi
  echo -e "${BLUE}================================================================================================================================"
- echo -e "${CYAN}Follow twitter to stay updated.  https://twitter.com/Real_Bit_Yoda${NC}"
+ echo -e "${CYAN}Follow twitter to stay updated.  https://twitter.com/CarebitAdmin${NC}"
  echo -e "${BLUE}================================================================================================================================${NC}"
- echo -e "${GREEN}Donations accepted but never required.${NC}"
+ echo -e "${GREEN}Donations accepted but never required. Love, Jules.${NC}"
  echo -e "${BLUE}================================================================================================================================${NC}"
- echo -e "${YELLOW}BCH: qzgnck23pwfag8ucz2f0vf0j5skshtuql5hmwwjhds"
- echo -e "${YELLOW}ETH: 0x765eA1753A1eB7b12500499405e811f4d5164554"
- echo -e "${YELLOW}LTC: LNt9EQputZK8djTSZyR3jE72o7NXNrb4aB${NC}"
+ echo -e "${YELLOW}CARE: CZBLWnbbadvezDLe5BfuBSyRht53xqCkzF"
+ echo -e "${YELLOW}BTC: 14tDjF852mSwBTwJU9sbAquw66aUFuNptu"
+ echo -e "${YELLOW}LTC: LLekStTMGcPYTGifNzQkhpA4s1jzm86X34${NC}"
  echo -e "${BLUE}================================================================================================================================${NC}"
 }
 
 function setup_node() {
   get_ip
   create_config
-  #create_key
+  create_key
   update_config
   enable_firewall
   #install_sentinel
