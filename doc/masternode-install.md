@@ -118,7 +118,7 @@ If you require further assistance contact the support team @ [Discord](https://d
 ***
 
 ***Step 9***
-* Sit back and wait for the install (this will take 10-20 mins)
+* Sit back and wait for the install (this will take a couple of minutes)
 ***
 
 ***Step 10***
@@ -128,7 +128,7 @@ If you require further assistance contact the support team @ [Discord](https://d
 ***
 
 ***Step 11***
-* You will now see all of the relavant information for your server.
+* You will now see all of the relevant information for your server.
 * Keep this terminal open as we will need the info for the wallet setup.
 ![Example-installing](https://i.imgur.com/Q87LcnW.png)
 ***
@@ -136,11 +136,11 @@ If you require further assistance contact the support team @ [Discord](https://d
 ## Section D: Preparing the Local wallet
 
 ***Step 1***
-* Download and install the Carebit wallet [here](https://github.com/carebitcoin/carebitcoin/releases/latest)
+* Download and install on the local PC / mac the Carebit wallet from [here](https://github.com/carebitcoin/carebitcoin/releases/latest)
 ***
 
 ***Step 2***
-* Send EXACLY 120000 CARE to a receive address within your wallet.
+* Send EXACTLY 120000 CARE to a receive address within your wallet.
 ***
 
 ***Step 3***
@@ -162,14 +162,14 @@ If you require further assistance contact the support team @ [Discord](https://d
 ***
 
 ***Step 6***
-* Copy the long key (this is your transaction ID) and the 1 or 2 at the end (this is your output index)
+* Copy the long key (this is your transaction ID) and the 0 or 1 at the end (this is your output index)
 * Paste these into the text document you created earlier as you will need them in the next step.
 ***
 
 # Section E: Connecting & Starting the masternode
 
 ***Step 1***
-* Go to the tools tab within the wallet and click open "masternode configuration file"
+* Go to the tools tab within the wallet and click "Open Masternode Configuration File"
 ![Example-create](https://i.imgur.com/NSn9ffU.png)
 ***
 
@@ -177,8 +177,8 @@ If you require further assistance contact the support team @ [Discord](https://d
 
 * Fill in the form.
 * For `Alias` type something like "MN01" **don't use spaces**
-* The `Address` is the IP and port of your server (this will be in the Bitvise terminal that you still have open).
-* The `Genkey` is your masternode Gen key (This is also in the Bitvise terminal that you have open).
+* The `Address` is the IP and port of your server (this will be in the Bitvise terminal that you still have open); make sure the port is set to **9192**.
+* The `Genkey` is your masternode Gen key output (this is also in the Bitvise terminal that you have open).
 * The `TxHash` is the transaction ID/long key that you copied to the text file.
 * The `Output Index` is the 0 or 1 that you copied to your text file.
 ![Example-create](https://i.imgur.com/9b1I3bk.png)
