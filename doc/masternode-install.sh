@@ -209,7 +209,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-if [ -n "$(pidof $COIN_DAEMON)" ] || [ -e "$COIN_DAEMOM" ] ; then
+if [ -n "$(pidof $COIN_DAEMON)" ] || [ -e "$COIN_DAEMON" ] ; then
   echo -e "${RED}$COIN_NAME is already installed.${NC}"
   exit 1
 fi
@@ -247,9 +247,6 @@ clear
 
 function important_information() {
  echo
- echo -e "${BLUE}================================================================================================================================${NC}"
- echo -e "${PURPLE}Windows Wallet Guide. https://github.com/Realbityoda/Carebitcoin/blob/master/README.md${NC}"
- echo -e "${BLUE}================================================================================================================================${NC}"
  echo -e "$COIN_NAME Masternode is up and running listening on port ${GREEN}$COIN_PORT${NC}."
  echo -e "Configuration file is: ${RED}$CONFIGFOLDER/$CONFIG_FILE${NC}"
  echo -e "Start: ${RED}systemctl start $COIN_NAME.service${NC}"
@@ -265,7 +262,7 @@ function important_information() {
  echo -e "${BLUE}================================================================================================================================"
  echo -e "${CYAN}Follow twitter to stay updated.  https://twitter.com/CarebitAdmin${NC}"
  echo -e "${BLUE}================================================================================================================================${NC}"
- echo -e "${GREEN}Donations accepted but never required. Love, Jules.${NC}"
+ echo -e "${GREEN}Donations accepted but never required.${NC}"
  echo -e "${BLUE}================================================================================================================================${NC}"
  echo -e "${YELLOW}CARE: CZBLWnbbadvezDLe5BfuBSyRht53xqCkzF"
  echo -e "${YELLOW}BTC: 14tDjF852mSwBTwJU9sbAquw66aUFuNptu"
