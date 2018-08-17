@@ -1,4 +1,5 @@
-<img src="https://github.com/carebitcoin/carebit-brand/blob/master/assets_raster/logotypes/L3H_text_light.png" alt="Carebit logo" width="300px"/>
+<img src="https://github.com/carebitcoin/carebit-brand/blob/master/assets_raster/logotypes/L3H_text_light_alpha_500x188.png" alt="Carebit logo" width=350px >
+
 # Carebit Masternode Setup Guide (Ubuntu 16.04)
 This guide will assist you in setting up a Carebit Masternode on a Linux Server running Ubuntu 16.04. (Use at your own risk)
 
