@@ -108,7 +108,7 @@ public:
         pchMessageStart[1] = 0x4d;
         pchMessageStart[2] = 0x2c;
         pchMessageStart[3] = 0x63;
-		vAlertPubKey = ParseHex("0495fd27d87ed59b6d64cc20986a9daa48acad7069d76bb09a9fbae7f287feed3bff5723f80d21a0a2da8fd8e7397f8cec313e8e1055b8e53de43427037c2113a4");
+		vAlertPubKey = ParseHex("0462dc74534aebc88f69b691d6b775d03598d71ef3ded01cadb242d297bea760830799c3d9d17ea816d04c7f8657707ab00e3caed1d99cba58c354453d35103172");
         nDefaultPort = 9192;
         bnProofOfWorkLimit = ~uint256(0) >> 1; // CarebitCoin starting difficulty
         nSubsidyHalvingInterval = 210000;
