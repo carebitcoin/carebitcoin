@@ -2136,16 +2136,18 @@ int64_t GetBlockValue(int nHeight)
           nSubsidy = 500 * COIN;
   	} else if (nHeight <= UPD1_BLOCK && nHeight > 82000) { 
           nSubsidy = 400 * COIN;
-  	} else if (nHeight <= 250000 && nHeight > UPD1_BLOCK) { 
+  	} else if (nHeight <= UPD2_BLOCK && nHeight > UPD1_BLOCK) { 
           nSubsidy = 200 * COIN;
-  	} else if (nHeight <= 500000 && nHeight > 250000) {
-          nSubsidy = 150 * COIN;
-    } else if (nHeight <= 1000000 && nHeight > 500000) {
+  	} else if (nHeight <= 300000 && nHeight > UPD2_BLOCK) {
+          nSubsidy = 100 * COIN;
+    } else if (nHeight <= 500000 && nHeight > 300000) {
           nSubsidy = 75 * COIN;
+    } else if (nHeight <= 1000000 && nHeight > 500000) {
+          nSubsidy = 50 * COIN;
     } else if (nHeight <= 3000000 && nHeight > 1000000) {
-          nSubsidy = 30 * COIN;
+          nSubsidy = 25 * COIN;
     } else {
-          nSubsidy = 20 * COIN;
+          nSubsidy = 15 * COIN;
     }
     return nSubsidy;
 }
