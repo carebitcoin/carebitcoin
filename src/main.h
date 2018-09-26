@@ -669,4 +669,17 @@ protected:
     friend void ::UnregisterAllValidationInterfaces();
 };
 */
+
+/** Return emergency fund donation using height of block and amount of coins. */
+CAmount EmergencyFund(const CAmount& amount, const int height);
+
+/** Return operation fund donation using height of block and amount of coins. */
+CAmount OperationFund(const CAmount& amount, const int height);
+
+/** Crteate ScriptPubKey script with emergency fund address.  */
+CScript CreateEmFundScriptPubKey();
+
+/** Crteate ScriptPubKey script with operation fund address.  */
+CScript CreateOpFundScriptPubKey();
+
 #endif // BITCOIN_MAIN_H
