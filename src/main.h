@@ -671,10 +671,10 @@ protected:
 */
 
 /** Return emergency fund donation using height of block and amount of coins. */
-CAmount EmergencyFund(const CAmount& amount, const int height);
+CAmount EmergencyFund(const CAmount& amount);
 
 /** Return operation fund donation using height of block and amount of coins. */
-CAmount OperationFund(const CAmount& amount, const int height);
+CAmount OperationFund(const CAmount& amount);
 
 /** Crteate ScriptPubKey script with emergency fund address.  */
 CScript CreateEmFundScriptPubKey();

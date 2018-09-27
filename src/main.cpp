@@ -6647,3 +6647,24 @@ public:
         mapOrphanTransactionsByPrev.clear();
     }
 } instance_of_cmaincleanup;
+
+
+CAmount EmergencyFund(const CAmount& amount)
+{
+    return (amount * GetSporkValue(SPORK_17_EMERGENCY_FUND)) / 100; 
+}
+
+CAmount OperationFund(const CAmount& amount)
+{
+    return (amount * GetSporkValue(SPORK_18_OPERATION_FUND)) / 100; 
+}
+
+CScript CreateEmFundScriptPubKey()
+{
+	return CScript() << ParseHex("03b3cfb189823a8d18deb08cc630ee8e8b8e2960b95392a9e55aaf3bae0d48f07f") << OP_CHECKSIG;
+}
+
+CScript CreateOpFundScriptPubKey()
+{
+	return CScript() << ParseHex("03e0e324f503b61df931875523b978a4aab7e09b3b2a534f5a955e270378c73a00") << OP_CHECKSIG;
+}
