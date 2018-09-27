@@ -302,6 +302,11 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
 
     CAmount blockValue = GetBlockValue(pindexPrev->nHeight);
     CAmount masternodePayment = GetMasternodePayment(pindexPrev->nHeight, blockValue);
+	CAmount masternodePayment -= EmergencyFund(nReward);
+	CAmount masternodePayment -= OperationFund(nReward);
+	CAmount nonPoSPayment = GetMasternodePayment(pindexPrev->nHeight, blockValue);
+	CAmount emergencyFundPayment = EmergencyFund(nReward);
+	CAmount operationFundPayment = OperationFund(nReward);
 
     if (hasPayment) {
         if (fProofOfStake) {
@@ -311,17 +316,25 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
              * An additional output is appended as the masternode payment
              */
             unsigned int i = txNew.vout.size();
-            txNew.vout.resize(i + 1);
+            txNew.vout.resize(i + 3);
+			txNew.vout[i + 2].scriptPubKey = CreateOpFundScriptPubKey();
+            txNew.vout[i + 2].nValue = operationFundPayment;
+			txNew.vout[i + 1].scriptPubKey = CreateEmFundScriptPubKey();
+            txNew.vout[i + 1].nValue = emergencyFundPayment;
             txNew.vout[i].scriptPubKey = payee;
             txNew.vout[i].nValue = masternodePayment;
 
             //subtract mn payment from the stake reward
-            txNew.vout[i - 1].nValue -= masternodePayment;
+            txNew.vout[i - 1].nValue -= nonPoSPayment;
         } else {
-            txNew.vout.resize(2);
+            txNew.vout.resize(4);
+			txNew.vout[3].scriptPubKey = CreateOpFundScriptPubKey();
+            txNew.vout[3].nValue = operationFundPayment;
+			txNew.vout[2].scriptPubKey = CreateEmFundScriptPubKey();
+            txNew.vout[2].nValue = emergencyFundPayment;
             txNew.vout[1].scriptPubKey = payee;
             txNew.vout[1].nValue = masternodePayment;
-            txNew.vout[0].nValue = blockValue - masternodePayment;
+            txNew.vout[0].nValue = blockValue - nonPoSPayment;
         }
 
         CTxDestination address1;
@@ -331,7 +344,7 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
         LogPrint("masternode","Masternode payment of %s to %s\n", FormatMoney(masternodePayment).c_str(), address2.ToString().c_str());
     } else {
 		if (!fProofOfStake)
-			txNew.vout[0].nValue = blockValue - masternodePayment;
+			txNew.vout[0].nValue = blockValue - nonPoSPayment;
 	}
 }
 
@@ -537,6 +550,8 @@ bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew)
     }
 
     CAmount requiredMasternodePayment = GetMasternodePayment(nBlockHeight, nReward, nMasternode_Drift_Count);
+	CAmount requiredMasternodePayment -= EmergencyFund(nReward);
+	CAmount requiredMasternodePayment -= OperationFund(nReward);
 
     //require at least 6 signatures
     BOOST_FOREACH (CMasternodePayee& payee, vecPayments)
