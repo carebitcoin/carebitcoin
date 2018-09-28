@@ -229,7 +229,7 @@ public:
         pchMessageStart[1] = 0x76;
         pchMessageStart[2] = 0x65;
         pchMessageStart[3] = 0xba;
-        vAlertPubKey = ParseHex("042292b1f401860eea99e1a8a103effbd7e1c013a59a1a3a0c91c9d1997a0bc6f338567278c11344802838c107055bf7c1641eaed61e879245c255a4f5be5746fc");
+        vAlertPubKey = ParseHex("0463622942092518da558756a78fb571673327475039aaafdeade7924a9859070d651860b25362f6a8b67911e993392dbbf40c43ade692ed098bbf8a1900bf7e17");
         nDefaultPort = 51435;
         nEnforceBlockUpgradeMajority = 51;
         nRejectBlockOutdatedMajority = 75;
@@ -284,7 +284,7 @@ public:
         fTestnetToBeDeprecatedFieldRPC = true;
 
         nPoolMaxTransactions = 2;
-        strSporkKey = "04188441e39d99aa69068ee07d26980f459b84465bbd765c6ee15d1aec5b76b5aebb01b24be184a1d3a12af61276549d96cc9499d909f8afc183132837d18d643d";
+        strSporkKey = "0438060cf9da0e5a6341320878db8f28f85fe51c3acef088b3a27147705dd380088143b9f4d8706eb621e4dd4ba51d3744b03cd8e669d91a6fa0c60e125a1d6bc0";
         strObfuscationPoolDummyAddress = "xp87cG8UEQgzs1Bk67Yk884C7pnQfAeo7q";
         nStartMasternodePayments = 1420837558; //Fri, 09 Jan 2015 21:05:58 GMT
         nBudget_Fee_Confirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
