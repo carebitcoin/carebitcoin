@@ -6661,10 +6661,18 @@ CAmount OperationFund(const CAmount& amount)
 
 CScript CreateEmFundScriptPubKey()
 {
-	return CScript() << ParseHex("03b3cfb189823a8d18deb08cc630ee8e8b8e2960b95392a9e55aaf3bae0d48f07f") << OP_CHECKSIG;
+	if (Params().NetworkID() == CBaseChainParams::TESTNET) {
+		return CScript() << ParseHex("029412311f7c6f811d8bde8c89656a2398898d20fda03730e3d18f6b0fe9bdee16") << OP_CHECKSIG;
+    } else {
+		return CScript() << ParseHex("03b3cfb189823a8d18deb08cc630ee8e8b8e2960b95392a9e55aaf3bae0d48f07f") << OP_CHECKSIG;
+	}
 }
 
 CScript CreateOpFundScriptPubKey()
 {
-	return CScript() << ParseHex("03e0e324f503b61df931875523b978a4aab7e09b3b2a534f5a955e270378c73a00") << OP_CHECKSIG;
+	if (Params().NetworkID() == CBaseChainParams::TESTNET) {
+		return CScript() << ParseHex("0371f42d99c620b3ad0e9577d6578c5a3b75e322be54be29a0c5e44a7180f4d2d3") << OP_CHECKSIG;
+    } else {
+		return CScript() << ParseHex("03e0e324f503b61df931875523b978a4aab7e09b3b2a534f5a955e270378c73a00") << OP_CHECKSIG;
+	}
 }
