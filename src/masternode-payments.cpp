@@ -315,7 +315,7 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
              * An additional output is appended as the masternode payment
              */
             unsigned int i = txNew.vout.size();
-			if (nHeight >= UPD2_BLOCK) {
+			if (pindexPrev->nHeight >= UPD2_BLOCK) {
 				txNew.vout.resize(i + 3);
 				txNew.vout[i + 2].scriptPubKey = CreateOpFundScriptPubKey();
 				txNew.vout[i + 2].nValue = operationFundPayment;
@@ -332,7 +332,7 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
             //subtract mn payment from the stake reward
             txNew.vout[i - 1].nValue -= nonPoSPayment;
         } else {
-			if (nHeight >= UPD2_BLOCK) {
+			if (pindexPrev->nHeight >= UPD2_BLOCK) {
 				txNew.vout.resize(4);
 				txNew.vout[3].scriptPubKey = CreateOpFundScriptPubKey();
 				txNew.vout[3].nValue = operationFundPayment;
