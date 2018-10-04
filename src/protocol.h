@@ -19,8 +19,6 @@
 #include <string>
 
 #define MESSAGE_START_SIZE 4
-#define MN_COLL1 120000
-#define MN_COLL2 119999.99
 
 /** Message header.
  * (4) message start.
