@@ -46,6 +46,7 @@
 
 #define UPD1_BLOCK 138831 // v3.0.0.0 - proto 70100 
 #define UPD2_BLOCK 240000 // v4.0.0.0 - proto 70200 
+#define tUPD2_BLOCK 250 // testnet v4 - proto 70200
 
 class CBlockIndex;
 class CBlockTreeDB;

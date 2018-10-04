@@ -12,6 +12,7 @@
 #include "spork.h"
 #include "sync.h"
 #include "util.h"
+#include "main.h"
 #include "utilmoneystr.h"
 #include <boost/filesystem.hpp>
 #include <boost/lexical_cast.hpp>
@@ -314,25 +315,38 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
              * An additional output is appended as the masternode payment
              */
             unsigned int i = txNew.vout.size();
-            txNew.vout.resize(i + 3);
-			txNew.vout[i + 2].scriptPubKey = CreateOpFundScriptPubKey();
-            txNew.vout[i + 2].nValue = operationFundPayment;
-			txNew.vout[i + 1].scriptPubKey = CreateEmFundScriptPubKey();
-            txNew.vout[i + 1].nValue = emergencyFundPayment;
-            txNew.vout[i].scriptPubKey = payee;
-            txNew.vout[i].nValue = masternodePayment;
+			if (nHeight >= UPD2_BLOCK) {
+				txNew.vout.resize(i + 3);
+				txNew.vout[i + 2].scriptPubKey = CreateOpFundScriptPubKey();
+				txNew.vout[i + 2].nValue = operationFundPayment;
+				txNew.vout[i + 1].scriptPubKey = CreateEmFundScriptPubKey();
+				txNew.vout[i + 1].nValue = emergencyFundPayment;
+				txNew.vout[i].scriptPubKey = payee;
+				txNew.vout[i].nValue = masternodePayment;
+			} else {
+				txNew.vout.resize(i + 1);
+				txNew.vout[i].scriptPubKey = payee;
+				txNew.vout[i].nValue = masternodePayment;
+			}
 
             //subtract mn payment from the stake reward
             txNew.vout[i - 1].nValue -= nonPoSPayment;
         } else {
-            txNew.vout.resize(4);
-			txNew.vout[3].scriptPubKey = CreateOpFundScriptPubKey();
-            txNew.vout[3].nValue = operationFundPayment;
-			txNew.vout[2].scriptPubKey = CreateEmFundScriptPubKey();
-            txNew.vout[2].nValue = emergencyFundPayment;
-            txNew.vout[1].scriptPubKey = payee;
-            txNew.vout[1].nValue = masternodePayment;
-            txNew.vout[0].nValue = blockValue - nonPoSPayment;
+			if (nHeight >= UPD2_BLOCK) {
+				txNew.vout.resize(4);
+				txNew.vout[3].scriptPubKey = CreateOpFundScriptPubKey();
+				txNew.vout[3].nValue = operationFundPayment;
+				txNew.vout[2].scriptPubKey = CreateEmFundScriptPubKey();
+				txNew.vout[2].nValue = emergencyFundPayment;
+				txNew.vout[1].scriptPubKey = payee;
+				txNew.vout[1].nValue = masternodePayment;
+				txNew.vout[0].nValue = blockValue - nonPoSPayment;
+			} else {
+				 txNew.vout.resize(2);
+				txNew.vout[1].scriptPubKey = payee;
+				txNew.vout[1].nValue = masternodePayment;
+				txNew.vout[0].nValue = blockValue - masternodePayment;
+			}
         }
 
         CTxDestination address1;
