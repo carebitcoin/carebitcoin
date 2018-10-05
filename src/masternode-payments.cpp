@@ -322,15 +322,27 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
 				txNew.vout[i + 1].scriptPubKey = CreateEmFundScriptPubKey();
 				txNew.vout[i + 1].nValue = emergencyFundPayment;
 				txNew.vout[i].scriptPubKey = payee;
-				txNew.vout[i].nValue = masternodePayment;
+				if (nonPoSPayment > 0) {
+					txNew.vout[i].nValue = masternodePayment;
+				} else {
+					txNew.vout[i].nValue = 0;
+				}
 			} else {
 				txNew.vout.resize(i + 1);
 				txNew.vout[i].scriptPubKey = payee;
-				txNew.vout[i].nValue = masternodePayment;
+				if (nonPoSPayment > 0) {
+					txNew.vout[i].nValue = masternodePayment;
+				} else {
+					txNew.vout[i].nValue = 0;
+				}
 			}
 
             //subtract mn payment from the stake reward
-            txNew.vout[i - 1].nValue -= nonPoSPayment;
+			if (nonPoSPayment > 0) {
+					txNew.vout[i - 1].nValue -= nonPoSPayment;
+				} else {
+					txNew.vout[i - 1].nValue += masternodePayment;
+				}
         } else {
 			if (pindexPrev->nHeight >= UPD2_BLOCK) {
 				txNew.vout.resize(4);
@@ -339,13 +351,23 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
 				txNew.vout[2].scriptPubKey = CreateEmFundScriptPubKey();
 				txNew.vout[2].nValue = emergencyFundPayment;
 				txNew.vout[1].scriptPubKey = payee;
-				txNew.vout[1].nValue = masternodePayment;
-				txNew.vout[0].nValue = blockValue - nonPoSPayment;
+				if (nonPoSPayment > 0) {
+					txNew.vout[1].nValue = masternodePayment;
+					txNew.vout[0].nValue = blockValue - nonPoSPayment;
+				} else {
+					txNew.vout[1].nValue = 0;
+					txNew.vout[0].nValue = blockValue + masternodePayment;
+				}
 			} else {
-				 txNew.vout.resize(2);
+				txNew.vout.resize(2);
 				txNew.vout[1].scriptPubKey = payee;
-				txNew.vout[1].nValue = masternodePayment;
-				txNew.vout[0].nValue = blockValue - masternodePayment;
+				if (nonPoSPayment > 0) {
+					txNew.vout[1].nValue = masternodePayment;
+					txNew.vout[0].nValue = blockValue - nonPoSPayment;
+				} else {
+					txNew.vout[1].nValue = 0;
+					txNew.vout[0].nValue = blockValue + masternodePayment;
+				}
 			}
         }
 
@@ -356,7 +378,11 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
         LogPrint("masternode","Masternode payment of %s to %s\n", FormatMoney(masternodePayment).c_str(), address2.ToString().c_str());
     } else {
 		if (!fProofOfStake)
-			txNew.vout[0].nValue = blockValue - nonPoSPayment;
+			if (nonPoSPayment > 0) {
+				txNew.vout[0].nValue = blockValue - nonPoSPayment;
+			} else {
+				txNew.vout[0].nValue = blockValue + masternodePayment;
+			}
 	}
 }
 
