@@ -168,7 +168,7 @@ public:
         assert(genesis.hashMerkleRoot == uint256("0x31835a77e99e386b8d623d6901295fc771303f445c258bb13b5a741434587d52"));
 		
 		vSeeds.push_back(CDNSSeedData("80.211.138.180", "80.211.138.180")); // j
-        vSeeds.push_back(CDNSSeedData("167.99.204.45", "167.99.204.45"));  	// n1
+        vSeeds.push_back(CDNSSeedData("206.189.19.150", "206.189.19.150")); // xpl
 		vSeeds.push_back(CDNSSeedData("167.99.204.49", "167.99.204.49"));  	// n2
 		vSeeds.push_back(CDNSSeedData("167.99.91.226", "167.99.91.226"));  	// n4
     	vSeeds.push_back(CDNSSeedData("77.68.77.47", "77.68.77.47"));  		// a1
