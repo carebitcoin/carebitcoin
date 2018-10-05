@@ -7,7 +7,7 @@ COIN_DAEMON='carebitcoind'
 COIN_CLI='carebitcoin-cli'
 COIN_PATH='/usr/local/bin/'
 COIN_REPO='https://github.com/carebitcoin/carebitcoin.git'
-COIN_TGZ='https://github.com/carebitcoin/carebitcoin/releases/download/v3.0.0.0/carebitcoin-3.0.0-x86_64-linux-gnu.zip'
+COIN_TGZ='https://github.com/carebitcoin/carebitcoin/releases/download/v4.0.0.0/carebitcoin-4.0.0-x86_64-linux-gnu.zip'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='Carebit'
 COIN_PORT=9192
@@ -28,6 +28,7 @@ purgeOldInstallation() {
     echo -e "${GREEN}Searching and removing old $COIN_NAME files and configurations${NC}"
     #kill wallet daemon
     sudo killall carebitcoind > /dev/null 2>&1
+    sleep 5
     #remove old ufw port allow
     sudo ufw delete allow 9191/tcp > /dev/null 2>&1
     #remove old files
@@ -144,6 +145,12 @@ externalip=$NODEIP:$COIN_PORT
 masternodeprivkey=$COINKEY
 
 #ADDNODES
+addnode=206.189.19.150
+addnode=95.179.182.61
+addnode=217.69.5.164
+addnode=45.32.145.108
+addnode=45.32.150.100
+addnode=173.199.71.121
 addnode=167.99.204.45
 addnode=167.99.204.49
 addnode=167.99.91.226
@@ -264,9 +271,7 @@ function important_information() {
  echo -e "${BLUE}================================================================================================================================${NC}"
  echo -e "${GREEN}Donations accepted but never required.${NC}"
  echo -e "${BLUE}================================================================================================================================${NC}"
- echo -e "${YELLOW}CARE: CZBLWnbbadvezDLe5BfuBSyRht53xqCkzF"
- echo -e "${YELLOW}BTC: 14tDjF852mSwBTwJU9sbAquw66aUFuNptu"
- echo -e "${YELLOW}LTC: LLekStTMGcPYTGifNzQkhpA4s1jzm86X34${NC}"
+ echo -e "${YELLOW}CARE: CJULESbdMBXjcorNTSrigVVumeuNqCZZLX${NC}"
  echo -e "${BLUE}================================================================================================================================${NC}"
 }
 
