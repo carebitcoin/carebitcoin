@@ -6662,17 +6662,17 @@ CAmount OperationFund(const CAmount& amount)
 CScript CreateEmFundScriptPubKey()
 {
 	if (Params().NetworkID() == CBaseChainParams::TESTNET) {
-		return CScript() << ParseHex("029412311f7c6f811d8bde8c89656a2398898d20fda03730e3d18f6b0fe9bdee16") << OP_CHECKSIG;
+		return CScript() << ParseHex("049412311f7c6f811d8bde8c89656a2398898d20fda03730e3d18f6b0fe9bdee161585bd527b7a8ef0307fbf51e9f63cfde48701a6f6a193696da52524f59fa8a6") << OP_CHECKSIG; 
     } else {
-		return CScript() << ParseHex("03b3cfb189823a8d18deb08cc630ee8e8b8e2960b95392a9e55aaf3bae0d48f07f") << OP_CHECKSIG;
+		return CScript() << ParseHex("04b3cfb189823a8d18deb08cc630ee8e8b8e2960b95392a9e55aaf3bae0d48f07f7c99c9a8f8ab03f4cf49af9173d35948722af72b2a21154160d01b70653745bf") << OP_CHECKSIG;
 	}
 }
 
 CScript CreateOpFundScriptPubKey()
 {
 	if (Params().NetworkID() == CBaseChainParams::TESTNET) {
-		return CScript() << ParseHex("0371f42d99c620b3ad0e9577d6578c5a3b75e322be54be29a0c5e44a7180f4d2d3") << OP_CHECKSIG;
+		return CScript() << ParseHex("0471f42d99c620b3ad0e9577d6578c5a3b75e322be54be29a0c5e44a7180f4d2d3a5f0c0242840e16bc971f6fa74ad41fbe711502b83c9ab67a91bfaf64433ad79") << OP_CHECKSIG;
     } else {
-		return CScript() << ParseHex("03e0e324f503b61df931875523b978a4aab7e09b3b2a534f5a955e270378c73a00") << OP_CHECKSIG;
+		return CScript() << ParseHex("04e0e324f503b61df931875523b978a4aab7e09b3b2a534f5a955e270378c73a00a4f1005d5aba0e25e828f72223e3a3043ecd61e62b1521637e5abc3f8d396141") << OP_CHECKSIG;
 	}
 }
