@@ -6,7 +6,7 @@ This guide will assist you in setting up a Carebit Masternode on a Linux Server 
 If you require further assistance contact the support team @ [Discord](https://discord.gg/BBBms9Z)
 ***
 ## Requirements
-1. **120000 Carebit coins.**
+1. **150000 Carebit coins.**
 2. **A Vultr VPS running Linux Ubuntu 16.04.**
 3. **A Windows local wallet.**
 4. **An SSH client such as [Bitvise](https://dl.bitvise.com/BvSshClient-Inst.exe)**
@@ -141,7 +141,7 @@ If you require further assistance contact the support team @ [Discord](https://d
 ***
 
 ***Step 2***
-* Send EXACTLY 120000 CARE to a receive address within your wallet.
+* Send EXACTLY 150000 CARE to a receive address within your wallet.
 ***
 
 ***Step 3***
@@ -151,7 +151,7 @@ If you require further assistance contact the support team @ [Discord](https://d
 ***step 4***
 * Go to the console within the wallet
 
-![Example-console](https://i.imgur.com/Z0a8dVy.png)
+![Example-console](img/wallet1.png)
 ***
 
 ***Step 5***
@@ -159,7 +159,7 @@ If you require further assistance contact the support team @ [Discord](https://d
 
 `masternode outputs`
 
-![Example-outputs](https://i.imgur.com/iCvrPrb.png)
+![Example-outputs](img/wallet2.png)
 ***
 
 ***Step 6***
@@ -171,7 +171,7 @@ If you require further assistance contact the support team @ [Discord](https://d
 
 ***Step 1***
 * Go to the tools tab within the wallet and click "Open Masternode Configuration File"
-![Example-create](https://i.imgur.com/NSn9ffU.png)
+![Example-create](img/wallet3.png)
 ***
 
 ***Step 2***
@@ -207,6 +207,4 @@ If you do, congratulations! You have now setup a masternode. If you do not, plea
 
 Any donation is highly appreciated.  
 
-**CARE**: CZBLWnbbadvezDLe5BfuBSyRht53xqCkzF  
-**BTC**: 14tDjF852mSwBTwJU9sbAquw66aUFuNptu  
-**LTC**: LLekStTMGcPYTGifNzQkhpA4s1jzm86X34  
+**CARE**: CJULESbdMBXjcorNTSrigVVumeuNqCZZLX  
