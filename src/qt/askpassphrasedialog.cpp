@@ -28,9 +28,9 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget* parent, WalletModel
     ui->passEdit2->setMinimumSize(ui->passEdit2->sizeHint());
     ui->passEdit3->setMinimumSize(ui->passEdit3->sizeHint());
 
-    ui->passEdit1->setMaxLength(MAX_PASSCAREBITCOINASE_SIZE);
-    ui->passEdit2->setMaxLength(MAX_PASSCAREBITCOINASE_SIZE);
-    ui->passEdit3->setMaxLength(MAX_PASSCAREBITCOINASE_SIZE);
+    ui->passEdit1->setMaxLength(MAX_PASSPHRASE_SIZE);
+    ui->passEdit2->setMaxLength(MAX_PASSPHRASE_SIZE);
+    ui->passEdit3->setMaxLength(MAX_PASSPHRASE_SIZE);
 
     // Setup Caps Lock detection.
     ui->passEdit1->installEventFilter(this);
