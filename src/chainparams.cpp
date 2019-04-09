@@ -62,12 +62,18 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
 		(175000, uint256("0x48c77ffa29d511b9e530292d9b820d6c384799fa912c24121639abc6c41a8a1e"))
 		(200000, uint256("0x135435535460c1ae051ca9ac1d6de4368ea4e9083c677aa252d2102056bf887f"))
 		(220000, uint256("0x9a06b46b646397158e1f60d87cfc2aa4c8a925f4735b233f1d1e71622f174039"))
-		(238000, uint256("0x8f5ec8c12c24b3b0b5cf58d246d69384bd3414592a8923859a7fc53d986c4919"));
+		(238000, uint256("0x8f5ec8c12c24b3b0b5cf58d246d69384bd3414592a8923859a7fc53d986c4919"))
+		(250000, uint256("0x76a9706e25aae491eb4c759dcea9817c29a8723ce9b8cad3718f7bcc75422223"))
+		(300000, uint256("0xc10532cb2676291f05692ddbb163270164d61a730d8377de0b70cacb326828b5"))
+		(350000, uint256("0x2969cff22e70d458723b92f85b9362c67968bc093fb0b5116a8053506a244f44"))
+		(400000, uint256("0x0aa20fe42d2ef1c26d3643e73fdf6473676a9c36fc2253b1ed42f18b7f756c23"))
+		(450000, uint256("0xedbe98093355e3b5c714f2e18ace08d72279ca02dfeb3a9c36b6df26d8064de6"))
+		(480000, uint256("0xd7f07031a1ea3423f1b04188995c0a9613f5efb4425fddc413551202a4263c61"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1538655975, // * UNIX timestamp of last checkpoint block
-    506080,    // * total number of transactions between genesis and last checkpoint
+    1553352020, // * UNIX timestamp of last checkpoint block
+    1004347,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
 };
@@ -113,7 +119,7 @@ public:
         pchMessageStart[1] = 0x4d;
         pchMessageStart[2] = 0x2c;
         pchMessageStart[3] = 0x63;
-		vAlertPubKey = ParseHex("0462dc74534aebc88f69b691d6b775d03598d71ef3ded01cadb242d297bea760830799c3d9d17ea816d04c7f8657707ab00e3caed1d99cba58c354453d35103172");
+        vAlertPubKey = ParseHex("0462dc74534aebc88f69b691d6b775d03598d71ef3ded01cadb242d297bea760830799c3d9d17ea816d04c7f8657707ab00e3caed1d99cba58c354453d35103172");
         nDefaultPort = 9192;
         bnProofOfWorkLimit = ~uint256(0) >> 1; // CarebitCoin starting difficulty
         nSubsidyHalvingInterval = 210000;
@@ -138,16 +144,6 @@ public:
         nBlockFirstFraudulent = ~1; //First block that bad serials emerged
         nBlockLastGoodCheckpoint = ~1; //Last valid accumulator checkpoint
 
-        /**
-         * Build the genesis block. Note that the output of the genesis coinbase cannot
-         * be spent as it did not originally exist in the database.
-         *
-         * CBlock(hash=00000ffd590b14, ver=1, hashPrevBlock=00000000000000, hashMerkleRoot=e0028e, nTime=1390095618, nBits=1e0ffff0, nNonce=28917698, vtx=1)
-         *   CTransaction(hash=e0028e, ver=1, vin.size=1, vout.size=1, nLockTime=0)
-         *     CTxIn(COutPoint(000000, -1), coinbase 04ffff001d01044c5957697265642030392f4a616e2f3230313420546865204772616e64204578706572696d656e7420476f6573204c6976653a204f76657273746f636b2e636f6d204973204e6f7720416363657074696e6720426974636f696e73)
-         *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
-         *   vMerkleTree: e0028e
-         */
         const char* pszTimestamp = "Re Launch of Carebit Coin April 20th 2018";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
