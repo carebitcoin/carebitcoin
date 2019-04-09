@@ -3,6 +3,7 @@
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
 // Copyright (c) 2017-2019 The CarebitCoin developers
+// Copyright (c) 2019 The PAWS developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -204,6 +205,9 @@ public:
         nDefaultSecurityLevel = 100; //full security level for accumulators
         nZerocoinHeaderVersion = 4; //Block headers must be this version once zerocoin is active
         nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
+
+        nStakeMinConfirmations = 720; // Required number of confirmations
+        nStakeMinAmount = 1000 * COIN; // Minimum required staking amount
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const
@@ -287,6 +291,9 @@ public:
         nStartMasternodePayments = 1420837558; //Fri, 09 Jan 2015 21:05:58 GMT
         nBudget_Fee_Confirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
                                        // here because we only have a 8 block finalization window on testnet
+
+        nStakeMinConfirmations = 30; // Required number of confirmations
+        nStakeMinAmount = 1000 * COIN; // Minimum required staking amount
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
     {

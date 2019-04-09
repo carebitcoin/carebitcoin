@@ -44,8 +44,8 @@
 
 #include <boost/unordered_map.hpp>
 
-#define UPD1_BLOCK 138831 // v3.0.0.0 - proto 70100 
-#define UPD2_BLOCK 240000 // v4.0.0.0 - proto 70200 
+#define UPD1_BLOCK 138831 // v3.0.0.0 - proto 70100
+#define UPD2_BLOCK 240000 // v4.0.0.0 - proto 70200
 #define tUPD2_BLOCK 250 // testnet v4 - proto 70200
 
 class CBlockIndex;
@@ -125,6 +125,13 @@ static const unsigned int MAX_REJECT_MESSAGE_LENGTH = 111;
 /** Enable bloom filter */
  static const bool DEFAULT_PEERBLOOMFILTERS = true;
 
+/** Default for -blockspamfilter, use header spam filter */
+static const bool DEFAULT_BLOCK_SPAM_FILTER = true;
+/** Default for -blockspamfiltermaxsize, maximum size of the list of indexes in the block spam filter */
+static const unsigned int DEFAULT_BLOCK_SPAM_FILTER_MAX_SIZE = COINBASE_MATURITY;
+/** Default for -blockspamfiltermaxavg, maximum average size of an index occurrence in the block spam filter */
+static const unsigned int DEFAULT_BLOCK_SPAM_FILTER_MAX_AVG = 10;
+
 /** "reject" message codes */
 static const unsigned char REJECT_MALFORMED = 0x01;
 static const unsigned char REJECT_INVALID = 0x10;
@@ -165,6 +172,7 @@ extern bool fLargeWorkForkFound;
 extern bool fLargeWorkInvalidChainFound;
 
 extern unsigned int nStakeMinAge;
+extern unsigned int nStakeMinAge2;
 extern int64_t nLastCoinStakeSearchInterval;
 extern int64_t nLastCoinStakeSearchTime;
 extern int64_t nReserveBalance;

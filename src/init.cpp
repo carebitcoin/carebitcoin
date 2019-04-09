@@ -2,7 +2,8 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2017 The CarebitCoin developers
+// Copyright (c) 2017-2019 The CarebitCoin developers
+// Copyright (c) 2019 The PAWS developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -526,6 +527,10 @@ std::string HelpMessage(HelpMessageMode mode)
     strUsage += HelpMessageOpt("-rpcsslprivatekeyfile=<file.pem>", strprintf(_("Server private key (default: %s)"), "server.pem"));
     strUsage += HelpMessageOpt("-rpcsslciphers=<ciphers>", strprintf(_("Acceptable ciphers (default: %s)"), "TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH"));
 
+    strUsage += HelpMessageOpt("-blockspamfilter=<n>", strprintf(_("Use block spam filter (default: %u)"), DEFAULT_BLOCK_SPAM_FILTER));
+    strUsage += HelpMessageOpt("-blockspamfiltermaxsize=<n>", strprintf(_("Maximum size of the list of indexes in the block spam filter (default: %u)"), DEFAULT_BLOCK_SPAM_FILTER_MAX_SIZE));
+    strUsage += HelpMessageOpt("-blockspamfiltermaxavg=<n>", strprintf(_("Maximum average size of an index occurrence in the block spam filter (default: %u)"), DEFAULT_BLOCK_SPAM_FILTER_MAX_AVG));
+
     return strUsage;
 }
 
@@ -536,6 +541,8 @@ std::string LicenseInfo()
            FormatParagraph(strprintf(_("Copyright (C) 2014-%i The Dash Core Developers"), COPYRIGHT_YEAR)) + "\n" +
            "\n" +
            FormatParagraph(strprintf(_("Copyright (C) 2015-%i The PIVX Core Developers"), COPYRIGHT_YEAR)) + "\n" +
+           "\n" +
+           FormatParagraph(strprintf(_("Copyright (C) 2019 The PAWS Core Developers"), COPYRIGHT_YEAR)) + "\n" +
            "\n" +
            FormatParagraph(strprintf(_("Copyright (C) 2017-%i The CarebitCoin Core Developers"), COPYRIGHT_YEAR)) + "\n" +
            "\n" +
@@ -1467,7 +1474,7 @@ bool AppInit2(boost::thread_group& threadGroup)
                 return InitError(strLoadError);
             }
         }
-		
+
 		if (!fReindex && Checkpoints::ActiveChainOnFork()) {
             bool fRet = uiInterface.ThreadSafeMessageBox(
                 strLoadError += _("Looks like you are on a forked chain. Please rebuild the block database now or run -reindex later."),
@@ -1483,7 +1490,7 @@ bool AppInit2(boost::thread_group& threadGroup)
             }
         }
     }
-			
+
 
     // As LoadBlockIndex can take several minutes, it's possible the user
     // requested to kill the GUI during the last operation. If so, exit.

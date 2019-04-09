@@ -2,6 +2,8 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX Core developers
+// Copyright (c) 2017-2019 The CarebitCoin developers
+// Copyright (c) 2019 The PAWS developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -116,6 +118,8 @@ public:
     int Zerocoin_Block_LastGoodCheckpoint() const { return nBlockLastGoodCheckpoint; }
     int Zerocoin_StartTime() const { return nZerocoinStartTime; }
     int Zerocoin_AccumulatorStartHeight() const { return nAccumulatorStartHeight; }
+    int Stake_MinConfirmations() const { return nStakeMinConfirmations; }
+    CAmount Stake_MinAmount() const { return nStakeMinAmount; }
 
 protected:
     CChainParams() {}
@@ -172,6 +176,8 @@ protected:
     int nBlockLastGoodCheckpoint;
     int nZerocoinStartTime;
     int nAccumulatorStartHeight;
+    int nStakeMinConfirmations;
+    CAmount nStakeMinAmount;
 };
 
 /**
