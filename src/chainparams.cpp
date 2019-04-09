@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2017 The CarebitCoin developers
+// Copyright (c) 2017-2019 The CarebitCoin developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -63,7 +63,7 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
 		(200000, uint256("0x135435535460c1ae051ca9ac1d6de4368ea4e9083c677aa252d2102056bf887f"))
 		(220000, uint256("0x9a06b46b646397158e1f60d87cfc2aa4c8a925f4735b233f1d1e71622f174039"))
 		(238000, uint256("0x8f5ec8c12c24b3b0b5cf58d246d69384bd3414592a8923859a7fc53d986c4919"));
-	
+
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
     1538655975, // * UNIX timestamp of last checkpoint block
@@ -166,16 +166,13 @@ public:
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0x00000d4c3eb9841c9258ba27e7fa633571d3ddd4d6e7f94e80051cb406c2c579"));
         assert(genesis.hashMerkleRoot == uint256("0x31835a77e99e386b8d623d6901295fc771303f445c258bb13b5a741434587d52"));
-		
-		vSeeds.push_back(CDNSSeedData("80.211.138.180", "80.211.138.180")); // j
-        vSeeds.push_back(CDNSSeedData("206.189.19.150", "206.189.19.150")); // xpl
-		vSeeds.push_back(CDNSSeedData("167.99.204.49", "167.99.204.49"));  	// n2
-		vSeeds.push_back(CDNSSeedData("167.99.91.226", "167.99.91.226"));  	// n4
-    	vSeeds.push_back(CDNSSeedData("77.68.77.47", "77.68.77.47"));  		// a1
-		vSeeds.push_back(CDNSSeedData("77.68.92.109", "77.68.92.109"));  	// a2
-		vSeeds.push_back(CDNSSeedData("66.175.238.91", "66.175.238.91"));  	// a3
-		vSeeds.push_back(CDNSSeedData("77.68.77.23", "77.68.77.23"));  	// a4
-		vSeeds.push_back(CDNSSeedData("77.68.79.34", "77.68.79.34")); 	// a5
+
+        vSeeds.push_back(CDNSSeedData("80.211.138.180", "80.211.138.180")); // j
+        vSeeds.push_back(CDNSSeedData("206.189.19.150", "206.189.19.150")); // x
+        vSeeds.push_back(CDNSSeedData("107.150.6.129", "107.150.6.129")); // a1
+        vSeeds.push_back(CDNSSeedData("5.180.22.22", "5.180.22.22")); // a2
+        vSeeds.push_back(CDNSSeedData("192.161.179.240", "192.161.179.240")); // a3
+        vSeeds.push_back(CDNSSeedData("155.94.154.124", "155.94.154.124")); // a4
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 28);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 137);
