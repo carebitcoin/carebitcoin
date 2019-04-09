@@ -93,9 +93,9 @@ void AskPassphraseDialog::accept()
     SecureString oldpass, newpass1, newpass2;
     if (!model)
         return;
-    oldpass.reserve(MAX_PASSCAREBITCOINASE_SIZE);
-    newpass1.reserve(MAX_PASSCAREBITCOINASE_SIZE);
-    newpass2.reserve(MAX_PASSCAREBITCOINASE_SIZE);
+    oldpass.reserve(MAX_PASSPHRASE_SIZE);
+    newpass1.reserve(MAX_PASSPHRASE_SIZE);
+    newpass2.reserve(MAX_PASSPHRASE_SIZE);
     // TODO: get rid of this .c_str() by implementing SecureString::operator=(std::string)
     // Alternately, find a way to make this input mlock()'d to begin with.
     oldpass.assign(ui->passEdit1->text().toStdString().c_str());
