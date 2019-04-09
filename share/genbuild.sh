@@ -13,9 +13,9 @@ else
     exit 1
 fi
 
-DESC="4.0.0"
+DESC="5.0.0"
 SUFFIX="JV"
-LAST_COMMIT_DATE="July, 27, 2018"
+LAST_COMMIT_DATE="March, 05, 2019"
 if [ -e "$(which git 2>/dev/null)" -a "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]; then
     # clean 'dirty' status of touched files that haven't been modified
     git diff >/dev/null 2>/dev/null
