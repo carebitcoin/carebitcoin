@@ -1,5 +1,7 @@
 // Copyright (c) 2014-2016 The Dash developers
 // Copyright (c) 2016-2017 The PIVX developers
+// Copyright (c) 2018-2019 CARE developers
+// Copyright (c) 2019 PAWS developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -27,7 +29,7 @@ using namespace boost;
     Sporks 11,12, and 16 to be removed with 1st zerocoin release
 */
 #define SPORK_START 10001
-#define SPORK_END 10019
+#define SPORK_END 10021
 
 #define SPORK_2_SWIFTTX 10001
 #define SPORK_3_SWIFTTX_BLOCK_FILTERING 10002
@@ -45,7 +47,9 @@ using namespace boost;
 #define SPORK_17_EMERGENCY_FUND 10016
 #define SPORK_18_OPERATION_FUND 10017
 #define SPORK_19_MAX_REORGANIZATION_DEPTH 10018
-#define SPORK_20_BLOCK_SPAM 10019
+#define SPORK_20_SPAM_CHK 10019
+#define SPORK_21_STAKE_REQ_AG 10020
+#define SPORK_22_STAKE_REQ_SZ 10021
 
 #define SPORK_2_SWIFTTX_DEFAULT 978307200                         // GMT: Monday 1 January 2001 00:00:00
 #define SPORK_3_SWIFTTX_BLOCK_FILTERING_DEFAULT 1424217600        // GMT: Wednesday 18 February 2015 00:00:00
@@ -56,13 +60,15 @@ using namespace boost;
 #define SPORK_10_MASTERNODE_PAY_UPDATED_NODES_DEFAULT 1911270048  // OFF
 #define SPORK_11_LOCK_INVALID_UTXO_DEFAULT 1911270048             // OFF
 #define SPORK_13_ENABLE_SUPERBLOCKS_DEFAULT 1911270048            // OFF
-#define SPORK_14_NEW_PROTOCOL_ENFORCEMENT_DEFAULT 1911270048      // OFF
+#define SPORK_14_NEW_PROTOCOL_ENFORCEMENT_DEFAULT 1911270048      // v5 upgrade
 #define SPORK_15_NEW_PROTOCOL_ENFORCEMENT_2_DEFAULT 1538776500    // v4 upgrade Friday 5 October 2018 21:55:00 GMT
 #define SPORK_16_ZEROCOIN_MAINTENANCE_MODE_DEFAULT 1911270048     // OFF
 #define SPORK_17_EMERGENCY_FUND_DEFAULT 0						              // 0 %
 #define SPORK_18_OPERATION_FUND_DEFAULT 0						              // 0 %
 #define SPORK_19_MAX_REORGANIZATION_DEPTH_DEFAULT 1000            // 1000 blocks
-#define SPORK_20_BLOCK_SPAM_DEFAULT 1911270048                    // OFF 
+#define SPORK_20_SPAM_CHK_DEFAULT 4070908800                      //OFF
+#define SPORK_21_STAKE_REQ_AG_DEFAULT 4070908800                  //OFF
+#define SPORK_22_STAKE_REQ_SZ_DEFAULT 4070908800                  //OFF
 
 class CSporkMessage;
 class CSporkManager;
