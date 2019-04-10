@@ -4434,9 +4434,9 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
                               return state.DoS(100, error("%s: serial double spent on main chain", __func__));
                       }
 
-                      if (!ContextualCheckZerocoinSpendNoSerialCheck(stakeTxIn, spend, pindex, 0))
-                          return state.DoS(100,error("%s: forked chain ContextualCheckZerocoinSpend failed for tx %s", __func__,
-                                                     stakeTxIn.GetHash().GetHex()), REJECT_INVALID, "bad-txns-invalid-zcare");
+                      // if (!ContextualCheckZerocoinSpendNoSerialCheck(stakeTxIn, spend, pindex, 0))
+                      //     return state.DoS(100,error("%s: forked chain ContextualCheckZerocoinSpend failed for tx %s", __func__,
+                      //                                stakeTxIn.GetHash().GetHex()), REJECT_INVALID, "bad-txns-invalid-zcare");
 
                       // Now only the ZKP left..
                       // As the spend maturity is 200, the acc value must be accumulated, otherwise it's not ready to be spent
@@ -4477,16 +4477,16 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
                     }
                 }
             }
-            else {
-                if(!isBlockFromFork)
-                    for (CTxIn zCareInput : zCAREInputs) {
-                            CoinSpend spend = TxInToZerocoinSpend(zCareInput);
-                            if (!ContextualCheckZerocoinSpend(stakeTxIn, spend, pindex, 0))
-                                return state.DoS(100,error("%s: main chain ContextualCheckZerocoinSpend failed for tx %s", __func__,
-                                        stakeTxIn.GetHash().GetHex()), REJECT_INVALID, "bad-txns-invalid-zcare");
-                    }
-
-            }
+            // else {
+            //     if(!isBlockFromFork)
+            //         for (CTxIn zCareInput : zCAREInputs) {
+            //                 CoinSpend spend = TxInToZerocoinSpend(zCareInput);
+            //                 if (!ContextualCheckZerocoinSpend(stakeTxIn, spend, pindex, 0))
+            //                     return state.DoS(100,error("%s: main chain ContextualCheckZerocoinSpend failed for tx %s", __func__,
+            //                             stakeTxIn.GetHash().GetHex()), REJECT_INVALID, "bad-txns-invalid-zcare");
+            //         }
+            //
+            // }
 
         } // block.IsProofOfStake()
       } // SPORK_20_SPAM_CHK is active and block is older than its timestamp
