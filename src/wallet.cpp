@@ -3738,7 +3738,8 @@ void CWallet::AutoCombineDust()
 
 bool CWallet::MultiSend()
 {
-    if (IsInitialBlockDownload() || IsLocked()) {
+    // Stop the old blocks from sending multisends
+    if (chainActive.Tip()->nTime < (GetAdjustedTime() - 300) || IsLocked()) {
         return false;
     }
 
