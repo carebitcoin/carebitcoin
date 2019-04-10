@@ -3971,7 +3971,6 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
         for (unsigned int i = 2; i < block.vtx.size(); i++)
             if (block.vtx[i].IsCoinStake())
                 return state.DoS(100, error("CheckBlock() : more than one coinstake"));
-    }
 
     if (IsSporkActive(SPORK_21_STAKE_REQ_AG) && block.GetBlockTime() >= GetSporkValue(SPORK_21_STAKE_REQ_AG)) {
 
