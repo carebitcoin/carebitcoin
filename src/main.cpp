@@ -4146,8 +4146,8 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
 
     //If this is a reorg, check that it is not too deep
     int64_t nMaxReorganizationDepth = GetSporkValue(SPORK_19_MAX_REORGANIZATION_DEPTH);
-	if (nMaxReorganizationDepth > 0 && chainActive.Height() - nHeight >= nMaxReorganizationDepth)
-		return state.DoS(1, error("%s: forked chain older than max reorganization depth (height %d)", __func__, nHeight));
+  	if (nMaxReorganizationDepth > 0 && chainActive.Height() - nHeight >= nMaxReorganizationDepth)
+  		return state.DoS(1, error("%s: forked chain older than max reorganization depth (height %d)", __func__, nHeight));
 
     // Check timestamp against prev
     if (block.GetBlockTime() <= pindexPrev->GetMedianTimePast()) {
@@ -4372,6 +4372,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
               vector<CBigNum> vBlockSerials;
               CBlock bl;
               // Go backwards on the forked chain up to the split
+              int64_t nMaxReorganizationDepth = GetSporkValue(SPORK_19_MAX_REORGANIZATION_DEPTH);
               do {
                 // Check if the forked chain is longer than the max reorg limit
                   if(readBlock == nMaxReorganizationDepth){
