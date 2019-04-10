@@ -166,10 +166,10 @@ public:
 
         vSeeds.push_back(CDNSSeedData("80.211.138.180", "80.211.138.180")); // j
         vSeeds.push_back(CDNSSeedData("206.189.19.150", "206.189.19.150")); // x
-        vSeeds.push_back(CDNSSeedData("107.150.6.129", "107.150.6.129")); // a1
+        vSeeds.push_back(CDNSSeedData("155.94.154.124", "155.94.154.124")); // a1
         vSeeds.push_back(CDNSSeedData("5.180.22.22", "5.180.22.22")); // a2
-        vSeeds.push_back(CDNSSeedData("192.161.179.240", "192.161.179.240")); // a3
-        vSeeds.push_back(CDNSSeedData("155.94.154.124", "155.94.154.124")); // a4
+        vSeeds.push_back(CDNSSeedData("5.180.25.87", "5.180.25.87")); // a3
+        vSeeds.push_back(CDNSSeedData("5.180.22.26", "5.180.22.26")); // a4
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 28);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 137);
