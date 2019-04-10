@@ -4374,7 +4374,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
               // Go backwards on the forked chain up to the split
               do {
                 // Check if the forked chain is longer than the max reorg limit
-                  if(readBlock == MaxReorganizationDepth()){
+                  if(readBlock == nMaxReorganizationDepth){
                       // TODO: Remove this chain from disk.
                       return error("%s: forked chain longer than maximum reorg limit", __func__);
                   }
